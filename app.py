@@ -2,6 +2,28 @@ import streamlit as st
 import requests
 import pandas as pd
 
+# Dico images types pokemon
+type_badges = {
+    "fire": "https://img.icons8.com/color/48/fire-element.png",
+    "water": "https://img.icons8.com/color/48/water-element.png",
+    "grass": "https://img.icons8.com/color/48/grass.png",
+    "electric": "https://img.icons8.com/color/48/lightning-bolt.png",
+    "psychic": "https://img.icons8.com/color/48/brain.png",
+    "ice": "https://img.icons8.com/color/48/snowflake.png",
+    "dragon": "https://img.icons8.com/color/48/dragon.png",
+    "dark": "https://img.icons8.com/color/48/moon-symbol.png",
+    "fairy": "https://img.icons8.com/color/48/fairy.png",
+    "normal": "https://img.icons8.com/color/48/circle.png",
+    "fighting": "https://img.icons8.com/color/48/boxing.png",
+    "flying": "https://img.icons8.com/color/48/bird.png",
+    "poison": "https://img.icons8.com/color/48/poison.png",
+    "ground": "https://img.icons8.com/color/48/mountain.png",
+    "rock": "https://img.icons8.com/color/48/rock.png",
+    "bug": "https://img.icons8.com/color/48/bug.png",
+    "ghost": "https://img.icons8.com/color/48/ghost.png",
+    "steel": "https://img.icons8.com/color/48/metal.png"
+}
+
 st.set_page_config(page_title="Mon pokedex", page_icon="https://img.icons8.com/color/48/red-team--v1.png")
 st.title("Mon Pokedex :)")
 
@@ -23,8 +45,16 @@ if pokemon_name :
 
             st.subheader("Name : " + data["name"].capitalize())
             types = [type["type"]["name"].capitalize() for type in data["types"]]
-            st.write("Type : " + ", ".join(types))
-            # st.write(", ".join(types))
+            #st.write("Type : " + ", ".join(types))
+
+            st.write("Type :")
+            cols = st.columns(len(data["types"]))
+
+            for i, type_info in enumerate(data["types"]):
+                type_name = type_info["type"]["name"]
+
+                st.image(type_badges[type_name], width=50)
+                st.caption(type_name.capitalize())
         
         with col_2 : 
 
