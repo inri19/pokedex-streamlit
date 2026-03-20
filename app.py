@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 
 st.set_page_config(page_title="Mon pokedex", page_icon="https://img.icons8.com/color/48/red-team--v1.png")
-st.title("Mon Pokedex")
+st.title("Mon Pokedex :)")
 
 # Choisir un pokemon
 pokemon_name = st.text_input("Entrez le nom d'un pokemon")
