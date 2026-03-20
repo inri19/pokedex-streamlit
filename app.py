@@ -53,8 +53,9 @@ if pokemon_name :
             for i, type_info in enumerate(data["types"]):
                 type_name = type_info["type"]["name"]
 
-                st.image(type_badges[type_name], width=50)
-                st.caption(type_name.capitalize())
+                with cols[i] :
+                    st.image(type_badges[type_name], width=50)
+                    st.caption(type_name.capitalize())
         
         with col_2 : 
 
